@@ -1,0 +1,18 @@
+<p>user-list works!</p>
+
+
+
+<div class="row">
+@for(user of userList; track user.id)
+{
+    <div class="card" class="col-md-4">
+    <img [src]="user.image" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ user.title }} {{ user.category }}</h5>
+      <p class="card-text">{{ user.description }}</p>
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+      <input type="button" class="btn btn-primary" value="Select user" (click)="AddUser(user)" />
+    </div>
+  </div>
+}
+</div>

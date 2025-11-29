@@ -1,0 +1,42 @@
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+  <div class="container" style="max-width:400px;margin:2rem auto;">
+    <h3>Login</h3>
+    <div class="mb-3">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="form-control"
+        [(ngModel)]="username"
+        required
+        #usernameRef="ngModel"
+        minlength="3"
+      />
+      @if(usernameRef.errors?.['required'] && usernameRef.dirty)
+      {
+        <div class="text-danger">Username is required</div>
+      }
+    </div>
+
+    <div class="mb-3">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        class="form-control"
+        [(ngModel)]="password"
+        required
+        #passwordRef="ngModel"
+      />
+    </div>
+
+    @if(errorMessage)
+    {
+      <div class="text-danger mb-2">{{ errorMessage }}</div>
+    }
+
+    <input type="submit" class="btn btn-primary" [disabled]="myForm.invalid || loading" value="Login" />
+  </div>
+</form>

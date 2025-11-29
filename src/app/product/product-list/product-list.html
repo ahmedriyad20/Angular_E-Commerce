@@ -1,0 +1,11 @@
+<input type="text" #titleSearch placeholder="Search by title" (input) = "searchText = titleSearch.value">
+<div class="row">
+@for(product of ((productsList | async) || []) | filterPipe: searchText : 'title'; track product.id)
+{
+    
+  <app-product-card [productInput]="product" class="col-md-4"></app-product-card>
+   
+}
+</div>
+
+filterPipe: searchText : 'title'

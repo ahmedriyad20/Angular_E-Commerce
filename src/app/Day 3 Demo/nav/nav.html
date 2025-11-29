@@ -1,0 +1,14 @@
+<p>nav works!</p>
+
+<!-- (change)="onSelect($event.target.value)" -->
+<select name="SelectedUsers" id="nav-select" >
+    <!-- Placeholder option (visible text) -->
+    <option value="">Selected Users</option>
+
+    <!-- Dynamic options from the service -->
+     @for(u of SelectedUsers(); track u.id)
+     {
+        <option >{{ u.title }}</option>
+     }
+        
+</select>

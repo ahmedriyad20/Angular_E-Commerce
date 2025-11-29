@@ -1,0 +1,14 @@
+<div class="card" >
+    <img [src]="productInput().images[0]" class="card-img-top" alt="..." appShadow/>
+    <div class="card-body">
+      <a class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" style="font-size: 22px;" 
+      [routerLink] = "['/productdetails', productInput().id]">{{ productInput().title }}</a>
+      <!-- <a class="card-title">{{ product.title }} </a> -->
+      <p class="card-text">{{ productInput().description | txtslicePipe: 30}}</p>
+      <p class="card-text" style="font-weight: bold;">{{productInput().price | currency: 'USD' : 'symbol'}}</p>
+      <!-- <p class="card-text" style="font-weight: bold;" appShowMoreInfo>rate = {{productInput().rating.rate}}$</p>
+      <p class="card-text" style="font-weight: bold;" appShowMoreInfo>count = {{productInput().rating.count}}$</p> -->
+      <input type="button" class="btn btn-primary" value="Add to cart" (click)="AddProductToCart(productInput())" />
+      <input type="button" class="btn btn-danger" value="Add to favorite" (click)="AddProductToFavorite(productInput())" />
+       </div>
+  </div>

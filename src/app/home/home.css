@@ -1,4 +1,5 @@
-/* .home-body{
+
+.home-body{
     display: grid;
     grid-template-columns: 1fr 400px
 }
@@ -10,4 +11,4 @@
 .aside{
     border: 4px solid rgb(92, 90, 90);
     margin-right: 10px;
-} */
+}

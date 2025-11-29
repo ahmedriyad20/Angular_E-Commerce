@@ -1,0 +1,113 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3>Add New User</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                formControlName="firstName"
+                [class.is-invalid]="(f['firstName'].touched || submitted) && f['firstName'].invalid">
+              <div class="invalid-feedback" *ngIf="(f['firstName'].touched || submitted) && f['firstName'].invalid">
+                <div *ngIf="f['firstName'].errors?.['required']">First name is required</div>
+                <div *ngIf="f['firstName'].errors?.['minlength']">First name must be at least 5 characters</div>
+                <div *ngIf="f['firstName'].errors?.['maxlength']">First name must not exceed 10 characters</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                formControlName="lastName"
+                [class.is-invalid]="(f['lastName'].touched || submitted) && f['lastName'].invalid">
+              <div class="invalid-feedback" *ngIf="(f['lastName'].touched || submitted) && f['lastName'].invalid">
+                <div *ngIf="f['lastName'].errors?.['required']">Last name is required</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="imageUrl" class="form-label">Image URL</label>
+              <input
+                type="text"
+                class="form-control"
+                id="imageUrl"
+                formControlName="imageUrl"
+                [class.is-invalid]="(f['imageUrl'].touched || submitted) && f['imageUrl'].invalid">
+              <div class="invalid-feedback" *ngIf="(f['imageUrl'].touched || submitted) && f['imageUrl'].invalid">
+                <div *ngIf="f['imageUrl'].errors?.['required']">Image URL is required</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                formControlName="email"
+                [class.is-invalid]="(f['email'].touched || submitted) && f['email'].invalid">
+              <div class="invalid-feedback" *ngIf="(f['email'].touched || submitted) && f['email'].invalid">
+                <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+                <div *ngIf="f['email'].errors?.['email']">Please enter a valid email address</div>
+              </div>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="userForm.invalid"
+              >
+                Save User
+              </button>
+              <a routerLink="/login" class="btn btn-secondary">Back to Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3>Saved Users</h3>
+        </div>
+        <div class="card-body">
+          <div *ngIf="users.length === 0" class="alert alert-info">
+            No users added yet.
+          </div>
+          <div *ngIf="users.length > 0" class="table-responsive">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Image URL</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users">
+                  <td>{{ user.firstName }}</td>
+                  <td>{{ user.lastName }}</td>
+                  <td>{{ user.email }}</td>
+                  <td class="text-truncate" style="max-width: 150px;">{{ user.imageUrl }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

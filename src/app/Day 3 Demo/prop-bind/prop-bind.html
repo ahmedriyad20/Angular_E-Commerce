@@ -1,0 +1,42 @@
+<p>prop-bind works!</p>
+
+<img [src]="imgSrc" alt="">
+<img [src]="is_m ? imgSrc : imgsrc2" alt="">
+
+<input type="text" [value]="username" [disabled]="is_m">
+
+<div [hidden]="!is_m">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Er
+    ror voluptatum, quis fugiat laboriosam nesciunt quam voluptatem
+     pariatur necessitatibus, qui maxime ducimus repellat minus culpa! 
+     Rem error veritatis quos neque fuga!
+</div>
+
+<div [class]="is_m ? 'text-bg-primary' : 'text-bg-danger'">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Er
+    ror voluptatum, quis fugiat laboriosam nesciunt quam voluptatem
+     pariatur necessitatibus, qui maxime ducimus repellat minus culpa! 
+     Rem error veritatis quos neque fuga!
+</div>
+
+<div [class]="is_m? 'one' : 'two'">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Er
+    ror voluptatum, quis fugiat laboriosam nesciunt quam voluptatem
+     pariatur necessitatibus, qui maxime ducimus repellat minus culpa! 
+     Rem error veritatis quos neque fuga!
+</div>
+
+<p [style]="pstyle">
+    asdasdasdasd
+</p>
+<p  [style]="{'font-size': '50px'} " [style]="{color: 'orange'} ">
+    sssssssssssssssss
+</p>
+
+<p  [style.fontSize]="'50px'" [style.color]="'orange'">
+    aazzzzzzzzzzzzzzzzz
+</p>
+
+<p [class]="clsasses">
+    mmmmmmmmmmmmmmmmmmm
+</p>

@@ -1,0 +1,14 @@
+<br><br><br><br>
+<h3>Favorite Products:</h3>
+
+@for(p of SelectedProducts(); track p.id)
+{
+    <div class="card" style="width: 20rem; margin: auto; margin-top: 10px;">
+      <img [src]="p.images[0]" class="card-img-top" alt="..." height="300px"/>
+    <div class="card-body">
+      <h5 class="card-title">{{ p.title }} </h5>
+      <p class="card-text" style="font-weight: bold;">{{p.price}}$</p>
+      <input type="button" class="btn btn-danger" value="Remove from favorite" (click)="RemoveProductFromFavorite(p)" />
+    </div>
+  </div>
+}
